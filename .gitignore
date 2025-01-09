@@ -107,3 +107,11 @@ ENV/
 
 # poetry
 poetry.lock
+
+#ignore text output
+wait_times.pkl
+transition_times.pkl
+Dynamic_Memory.txt
+Conditional_Activity.png
+Dihedral_Angle.csv
+Conditional_Activity.txt
