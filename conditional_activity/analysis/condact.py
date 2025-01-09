@@ -508,7 +508,7 @@ class CONDACT(AnalysisBase):
 # ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
         # Extract dynamic memory from conditional activity matrix -----------------------------------------------------------------------------
         Dynamic_Memory = np.diag(np.array(conditional_activity))
-        np.savetxt('Dynamic_Memory_E76K.txt', Dynamic_Memory, fmt='%.7f')
+        np.savetxt('Dynamic_Memory.txt', Dynamic_Memory, fmt='%.7f')
 
         # Plot heatmap for conditional activity matrix ----------------------------------------------------------------------------------------------
         import matplotlib.pyplot as plt
@@ -518,20 +518,19 @@ class CONDACT(AnalysisBase):
         im=ax.imshow(conditional_activity,interpolation='nearest', origin='lower', cmap = reversed_map, aspect='auto', vmin=0)
         cbar2 = fig.colorbar(im)
         cbar2.ax.set_ylabel('$CA$', fontsize = 10.0)
-        plt.savefig("Conditional_Activity_E76K.png",format='png', dpi=300)
+        plt.savefig("Conditional_Activity.png",format='png', dpi=300)
 
         # Write conditional activity matrix from results and save to text file---------------------------------------------------------------------
         conditional_activity_matrix = np.array(conditional_activity)
         print(conditional_activity_matrix)
-        np.savetxt('Conditional_Activity_E76K.txt', conditional_activity_matrix, fmt='%.7f', delimiter=' ')
+        np.savetxt('Conditional_Activity.txt', conditional_activity_matrix, fmt='%.7f', delimiter=' ')
         return conditional_activity, persistence_times, exchange_times
 # ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # universe = Universe("/Users/augustineonyema/MolSSI/Conditional_Activity/Codes_Cond_Act/dry_Lys.prmtop", 
 #                     "/Users/augustineonyema/MolSSI/Conditional_Activity/Codes_Cond_Act/test_dry_Lys.xtc")
-
-universe = Universe("/Users/augustineonyema/MolSSI/Protein_Conditional_Activity/Protein_Conditional_Activity/Protein_Conditional_Activity/tests/pytest_LYS.prmtop", 
-                    "/Users/augustineonyema/MolSSI/Protein_Conditional_Activity/Protein_Conditional_Activity/Protein_Conditional_Activity/tests/pytest_LYS.xtc")
+universe = Universe("pytest_LYS.prmtop", 
+                    "pytest_LYS.xtc")
 
 Study = CONDACT(universe,
                     selected_resid='1-3', #1-1268
@@ -544,7 +543,7 @@ Study = CONDACT(universe,
                     saving_frequency=10,
                     keep_negative=False) # 33 34 35 36 41 46 52 53 58 59 63 83 98 101 107 108 109
 conditional_activity, persistence_times, exchange_times = Study.mean_conditional_activity()
-# transition_times, wait_times= Study.run()
+
 print(f"persistence_times{persistence_times}")
 print(f"exchange_times{exchange_times}")
 print(conditional_activity)
