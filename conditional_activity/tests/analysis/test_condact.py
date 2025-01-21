@@ -22,8 +22,12 @@ import math
 
 
 
-universe = Universe("/Users/augustineonyema/MolSSI/Protein_Conditional_Activity/Protein_Conditional_Activity/Protein_Conditional_Activity/tests/pytest_LYS.prmtop", 
-                    "/Users/augustineonyema/MolSSI/Protein_Conditional_Activity/Protein_Conditional_Activity/Protein_Conditional_Activity/tests/pytest_LYS.xtc")
+# universe = Universe("/Users/augustineonyema/MolSSI/Protein_Conditional_Activity/Protein_Conditional_Activity/Protein_Conditional_Activity/tests/pytest_LYS.prmtop", 
+#                     "/Users/augustineonyema/MolSSI/Protein_Conditional_Activity/Protein_Conditional_Activity/Protein_Conditional_Activity/tests/pytest_LYS.xtc")
+
+universe = Universe("pytest_LYS.prmtop", 
+                    "pytest_LYS.xtc")
+
 
 OUTFILE = 'Dihedral_Angle.csv'
 
