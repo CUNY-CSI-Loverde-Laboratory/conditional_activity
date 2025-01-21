@@ -529,8 +529,7 @@ class CONDACT(AnalysisBase):
 
 # universe = Universe("/Users/augustineonyema/MolSSI/Conditional_Activity/Codes_Cond_Act/dry_Lys.prmtop", 
 #                     "/Users/augustineonyema/MolSSI/Conditional_Activity/Codes_Cond_Act/test_dry_Lys.xtc")
-universe = Universe("pytest_LYS.prmtop", 
-                    "pytest_LYS.xtc")
+universe = Universe("../tests/analysis/pytest_LYS.prmtop", "../tests/analysis/pytest_LYS.xtc")
 
 Study = CONDACT(universe,
                     selected_resid='1-3', #1-1268
