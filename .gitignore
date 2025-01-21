@@ -117,3 +117,5 @@ Dihedral_Angle.csv
 Conditional_Activity.txt
 pytest_LYS.prmtop
 pytest_LYS.xtc
+.pytest_LYS.xtc_offsets.lock
+.pytest_LYS.xtc_offsets.npz
