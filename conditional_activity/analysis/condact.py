@@ -417,8 +417,6 @@ class CONDACT(AnalysisBase):
             pickle.dump(transition_times, f)
         with open('wait_times.pkl', 'wb') as t:
             pickle.dump(wait_times, t)
-        # print(transition_times)
-        # print(wait_times)
         return transition_times, wait_times
         
 
@@ -438,8 +436,7 @@ class CONDACT(AnalysisBase):
             
         for res in wait_times.values():
             # Ignoring all residues with less than 10 transitions, hence less than 9 wait times
-            res = res[1:]
-            if len(res) < 9:
+            if len(res) < 10:
                 res = [0]
             # start the summation: wait-time * p(wait-time), and p(wait-time) is just wait-time i.e (wait-time ^ 2)---
             sum_ = 0
@@ -459,7 +456,7 @@ class CONDACT(AnalysisBase):
             to change after a change in the degree of freedom of X. 
                 It uses the waiting time W(X) of each amino acids as shown below:
             Tp[X] = 1/𝜏 * sum{1,N(Y)-1} W(X,T(Y,i+1))W(Y,T(Y,i))'''
-         # Call over trajectory to get transitions --------------------------------------------------------
+         # Call over trajectory to get transitions ---------------------------------------------------------------
         with open('transition_times.pkl', 'rb') as f:
             transition_times= pickle.load(f)
         observation_time = len(universe.trajectory) * self.saving_frequency
@@ -477,7 +474,7 @@ class CONDACT(AnalysisBase):
                 sum_ = 0 # reset the sum
                 
                 # for loops to iterate arrays within dictionary
-                for i in range(2, len(transition_times[res1])):
+                for i in range(1, len(transition_times[res1])):
                     # ensures we only get the first
                     if (self.find_gt(transition_times[res2], transition_times[res1][i])) < transition_times[res1][i]:
                         break 
@@ -517,19 +514,28 @@ class CONDACT(AnalysisBase):
         reversed_map = orig_map.reversed()
         im=ax.imshow(conditional_activity,interpolation='nearest', origin='lower', cmap = reversed_map, aspect='auto', vmin=0)
         cbar2 = fig.colorbar(im)
+        cbar2.ax.set_ylabel(r'$\it\bf CA$', fontsize = 16.0, fontweight="bold")
+        cbar2.ax.tick_params(axis='y', labelsize=14, length=3, width=1)
+        plt.tick_params(labelsize=16, pad=1)
+        plt.xlabel("Residues", fontsize = 20.0, fontweight="bold")
+        plt.ylabel("Residues", fontsize = 22.0, fontweight="bold")
+        ax.spines["top"].set_linewidth(3)
+        ax.spines["left"].set_linewidth(3)
+        ax.spines["right"].set_linewidth(3)
+        ax.spines["bottom"].set_linewidth(3)
+        plt.rcParams["font.weight"] = "bold"
+        plt.rcParams["axes.labelweight"] = "bold"
         cbar2.ax.set_ylabel('$CA$', fontsize = 10.0)
         plt.savefig("Conditional_Activity.png",format='png', dpi=300)
 
         # Write conditional activity matrix from results and save to text file---------------------------------------------------------------------
         conditional_activity_matrix = np.array(conditional_activity)
-        print(conditional_activity_matrix)
         np.savetxt('Conditional_Activity.txt', conditional_activity_matrix, fmt='%.7f', delimiter=' ')
         return conditional_activity, persistence_times, exchange_times
 # ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# universe = Universe("/Users/augustineonyema/MolSSI/Conditional_Activity/Codes_Cond_Act/dry_Lys.prmtop", 
-#                     "/Users/augustineonyema/MolSSI/Conditional_Activity/Codes_Cond_Act/test_dry_Lys.xtc")
-universe = Universe("../tests/analysis/pytest_LYS.prmtop", "../tests/analysis/pytest_LYS.xtc")
+universe = Universe("pytest_LYS.prmtop", "pytest_LYS.xtc")
+# universe = Universe("../tests/analysis/pytest_LYS.prmtop", "../tests/analysis/pytest_LYS.xtc")
 
 Study = CONDACT(universe,
                     selected_resid='1-3', #1-1268
