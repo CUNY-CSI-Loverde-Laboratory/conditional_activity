@@ -554,5 +554,5 @@ print(f"exchange_times{exchange_times}")
 print(conditional_activity)
 
 # total time taken 
-end = time.time() 
+end = time.time()
 # print(f"Total runtime of the program is {end - begin}") 
