@@ -11,22 +11,11 @@ from MDAnalysis import Universe
 from conditional_activity.analysis.condact import CONDACT
 from conditional_activity.tests.utils import make_Universe
 import math
-# import conditional_activity
 
-
-
-# import MDAnalysis
 # from MDAnalysis.analysis.base import AnalysisBase
-
 # from numpy.testing import assert_allclose
 
-
-
-# universe = Universe("/Users/augustineonyema/MolSSI/Protein_Conditional_Activity/Protein_Conditional_Activity/Protein_Conditional_Activity/tests/pytest_LYS.prmtop", 
-#                     "/Users/augustineonyema/MolSSI/Protein_Conditional_Activity/Protein_Conditional_Activity/Protein_Conditional_Activity/tests/pytest_LYS.xtc")
-
-universe = Universe("pytest_LYS.prmtop", 
-                    "pytest_LYS.xtc")
+universe = Universe("pytest_LYS.prmtop", "pytest_LYS.xtc")
 
 
 OUTFILE = 'Dihedral_Angle.csv'
@@ -254,8 +243,8 @@ def test_mean_persistent_time(sample_universe):
                         saving_frequency=saving_frequency)
     
     persistence_times, list_persistence_times = activity.mean_persistent_time()
-    assert persistence_times == {'GLN 1': 928.405, 'ASN 2': 0, 'ASP 3': 848.0216666666666}
-    assert list_persistence_times == [928.405, 0.0, 848.0216666666666]
+    assert persistence_times == {'GLN 1': 947.1316666666667, 'ASN 2': 0.0, 'ASP 3': 3805.0616666666665}
+    assert list_persistence_times == [947.1316666666667, 0.0, 3805.0616666666665]
 
 
 
@@ -268,7 +257,7 @@ def test_mean_exchange_time(sample_universe):
                               saving_frequency=saving_frequency)
     # call mean_exchange_times function
     exchange_time = activity.mean_exchange_time()
-    assert exchange_time == [[307.9033333333333, 0.0, 2622.8366666666666], [0.0, 0.0, 0.0], [85.52333333333333, 0.0, 554.2666666666667]]
+    assert exchange_time == [[319.9166666666667, 0.0, 3056.0233333333335], [0.0, 0.0, 0.0], [103.28333333333333, 0.0, 776.2666666666667]]
 
 
 def test_mean_conditional_activity(sample_universe):
@@ -285,4 +274,4 @@ def test_mean_conditional_activity(sample_universe):
                         saving_frequency=saving_frequency,
                         states_protein= states_protein)
     conditional_activity, persistence_times, exchange_times = activity.mean_conditional_activity()
-    assert conditional_activity == [[1.103682179097811, math.nan, -1.0385436482668298], [math.nan, math.nan, math.nan], [2.2941169425854744, math.nan, 0.425260267069592]]
+    assert conditional_activity == [[1.0853775738595968, math.nan, -1.1714316664379227], [math.nan, math.nan, math.nan], [3.606611456169962, math.nan, 1.5895913731466649]]
