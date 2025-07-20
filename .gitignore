@@ -108,7 +108,7 @@ ENV/
 # poetry
 poetry.lock
 
-#ignore text output
+#ignore these output
 wait_times.pkl
 transition_times.pkl
 Dynamic_Memory.txt
@@ -120,3 +120,5 @@ pytest_LYS.xtc
 .pytest_LYS.xtc_offsets.lock
 .pytest_LYS.xtc_offsets.npz
 Conditional_Activity_list.npy
+Dynamic_Memory.npy
+Conditional_Activity_matrix.npy
