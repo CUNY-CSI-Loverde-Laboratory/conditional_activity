@@ -331,7 +331,7 @@ class CONDACT(AnalysisBase):
             conditional_activity_ = []
             for time_ in range(len(exchange_times[res])):
                 if (exchange_times[res][time_] == 0.0) or (list_persistence_times[res]== 0.0):
-                    print(f"{residue_names[res]} {residue_type[res].resid} or {residue_names[time_]} {residue_type[time_].resid} had statistically fewer transitions hence Conditional Activity CA[{residue_names[res]} {residue_type[res].resid}][{residue_names[time_]} {residue_type[time_].resid}] could not be determine.")
+                    print(f"{residue_names[res]} {residue_type[res].resid} or {residue_names[time_]} {residue_type[time_].resid} had statistically fewer transitions hence Conditional Activity A[{residue_names[res]} {residue_type[res].resid}][{residue_names[time_]} {residue_type[time_].resid}] could not be determine.")
                     CA = math.nan
                     conditional_activity_.append(CA)
                 else:
@@ -343,51 +343,14 @@ class CONDACT(AnalysisBase):
 # ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
         # Extract dynamic memory from conditional activity matrix -----------------------------------------------------------------------------
         Dynamic_Memory = np.diag(np.array(conditional_activity))
-        np.savetxt('Dynamic_Memory.txt', Dynamic_Memory, fmt='%.7f')
-
-        # Plot heatmap for conditional activity matrix ----------------------------------------------------------------------------------------------
-        fig, ax=plt.subplots(figsize=(11, 8))
-        orig_map=plt.get_cmap('hot')
-        reversed_map = orig_map.reversed()
-        im=ax.imshow(conditional_activity,interpolation='nearest', origin='lower', cmap = reversed_map, aspect='auto', vmin=0)
-        cbar2 = fig.colorbar(im)
-        cbar2.ax.set_ylabel(r'$\it\bf CA$', fontsize = 16.0, fontweight="bold")
-        cbar2.ax.tick_params(axis='y', labelsize=14, length=3, width=1)
-        plt.tick_params(labelsize=16, pad=1)
-        plt.xlabel("Residues", fontsize = 20.0, fontweight="bold")
-        plt.ylabel("Residues", fontsize = 22.0, fontweight="bold")
-        ax.spines["top"].set_linewidth(3)
-        ax.spines["left"].set_linewidth(3)
-        ax.spines["right"].set_linewidth(3)
-        ax.spines["bottom"].set_linewidth(3)
-        plt.rcParams["font.weight"] = "bold"
-        plt.rcParams["axes.labelweight"] = "bold"
-        cbar2.ax.set_ylabel('$CA$', fontsize = 10.0)
-        plt.savefig("Conditional_Activity.png",format='png', dpi=300)
+        np.save('Dynamic_Memory.npy', Dynamic_Memory)
 
         # Write conditional activity matrix from results and save to text file---------------------------------------------------------------------
         conditional_activity_matrix = np.array(conditional_activity)
-        np.savetxt('Conditional_Activity.txt', conditional_activity_matrix, fmt='%.7f', delimiter=' ')
+        np.save('Conditional_Activity_matrix.npy', conditional_activity_matrix)
         return conditional_activity, persistence_times, exchange_times
-# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# universe = Universe("pytest_LYS.prmtop", "pytest_LYS.xtc")
-
-# Study = CONDACT(universe = universe,
-#                     selected_resid='1-3', #1-1268
-#                     No_of_peaks_protein=3,
-#                     peak_boundaries_protein=[120,240],
-#                     states_protein = "XYZ",
-#                     peak_boundaries_nucleic =[140,330],
-#                     No_of_peaks_nucleic=3,
-#                     states_nucleic = "SAS",
-#                     saving_frequency=10,
-#                     keep_negative=False) # 33 34 35 36 41 46 52 53 58 59 63 83 98 101 107 108 109
-# conditional_activity, persistence_times, exchange_times = Study.mean_conditional_activity()
-
-# # print(f"persistence_times{persistence_times}")
-# # print(f"exchange_times{exchange_times}")
-# print(conditional_activity)
+# # ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # # total time taken 
 end = time.time()
