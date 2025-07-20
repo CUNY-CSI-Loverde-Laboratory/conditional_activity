@@ -119,3 +119,4 @@ pytest_LYS.prmtop
 pytest_LYS.xtc
 .pytest_LYS.xtc_offsets.lock
 .pytest_LYS.xtc_offsets.npz
+Conditional_Activity_list.npy
