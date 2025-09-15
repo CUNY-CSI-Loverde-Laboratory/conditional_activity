@@ -345,7 +345,7 @@ class CONDACT(AnalysisBase):
         Dynamic_Memory = np.diag(np.array(conditional_activity))
         np.save('Dynamic_Memory.npy', Dynamic_Memory)
 
-        # Write conditional activity matrix from results and save to text file---------------------------------------------------------------------
+        # Write conditional activity matrix from results and save to binary file---------------------------------------------------------------------
         conditional_activity_matrix = np.array(conditional_activity)
         np.save('Conditional_Activity_matrix.npy', conditional_activity_matrix)
         return conditional_activity, persistence_times, exchange_times
