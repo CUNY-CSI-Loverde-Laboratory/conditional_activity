@@ -1,7 +1,8 @@
 Conditional_Activity
 ==============================
-[//]: # (Badges)
 ![Image Alt](https://github.com/CUNY-CSI-Loverde-Laboratory/conditional_activity/blob/d8fa5cb41780ecc340cb6150a187b4aa2fda656d/CONDACT_Logo.png)
+
+[//]: # (Badges)
 | **Latest release** | [![Last release tag][badge_release]][url_latest_release] ![GitHub commits since latest release (by date) for a branch][badge_commits_since]  [![Documentation Status][badge_docs]][url_docs]|
 | :----------------- | :------- |
 | **Status**         | [![GH Actions Status][badge_actions]][url_actions] [![codecov][badge_codecov]][url_codecov] |
