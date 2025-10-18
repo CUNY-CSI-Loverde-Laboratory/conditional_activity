@@ -6,9 +6,9 @@ This module contains the :class:`CONDACT` class.
 
 This code calculates the Conditional activity (time-correlated transitions) of a degree of freedom.\
     In this case, the first sidechain dihedral angles (chi1)  for selected amino residues in protein\
-        (except ALA and GLY) and the base-phosphate backbone dihedral angle in nucleotides were used. The code\
+        (except ALA and GLY) and the sugar-base dihedral angle in nucleotides were used. The code\
             seeks to find the kinetic correlation of amino acids side chains in the 3-dimensional native state\
-                of a protein and the base-phosphate backbone in a polynucleotide strand. This module was built on MDAnalysis\
+                of a protein and the sugar-base in a polynucleotide strand. This module was built on MDAnalysis\
                     as a foundation using some functions in the MDAnalysis package.
 
 input: The residue id and names of amino acids and nitrogenous bases of interest.\
