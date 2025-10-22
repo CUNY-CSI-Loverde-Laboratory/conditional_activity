@@ -115,8 +115,8 @@ Dynamic_Memory.txt
 Conditional_Activity.png
 Dihedral_Angle.csv
 Conditional_Activity.txt
-pytest_LYS.prmtop
-pytest_LYS.xtc
+#pytest_LYS.prmtop
+#pytest_LYS.xtc
 .pytest_LYS.xtc_offsets.lock
 .pytest_LYS.xtc_offsets.npz
 Conditional_Activity_list.npy
