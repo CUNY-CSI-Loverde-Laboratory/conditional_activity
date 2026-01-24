@@ -19,15 +19,17 @@ output: csv files containing diheral angles of interest,\
         Inter-residue conditional activity of the residues of interest in binary file .npy,\
         Dynamical memory of each residue of interest in a txt file,\
         heatmap of inter-residue conditional activity in .png.
+
+Author: Augustine C. Onyema
 '''
-from MDAnalysis.core.universe import Universe, AtomGroup
+# from MDAnalysis.core.universe import Universe, AtomGroup
 from MDAnalysis.analysis.base import AnalysisBase
 import numpy as np
 import matplotlib.pyplot as plt
 from bisect import bisect, bisect_right
 import pickle
 import math
-from json import dumps, load
+# from json import dumps, load
 import time
 
 
@@ -272,13 +274,12 @@ class CONDACT(AnalysisBase):
             
         for res in wait_times.values():
             # Ignoring all residues with less than 10 transitions, hence less than 9 wait times
-            if len(res) < 10:
-                res = [0]
+            res_used = res if len(res) >= 10 else [0]
             # start the summation: wait-time * p(wait-time), and p(wait-time) is just wait-time i.e (wait-time ^ 2)---
             sum_ = 0
-            for time in range(len(res)):
+            for time in range(len(res_used)):
                 # The sequential addition of the product of the square of each wait-time  i.e [A1*A1] + [A2*A2]+...[An*An] 
-                sum_ += res[time] * res[time]
+                sum_ += res_used[time] * res_used[time]
             residue_pers_times = sum_ / (2 * observation_time)
             list_persistence_times.append(residue_pers_times)
         for i in range(len(residue_type)):
@@ -300,23 +301,27 @@ class CONDACT(AnalysisBase):
         # for loops to iterate keys of dictionary
         for res1 in transition_times:
             # Ignoring all residues with less than 10 transitions
-            if len(transition_times[res1]) < 11:
-                transition_times[res1] = [0]
+            t1 = transition_times[res1]
+            res1_used = t1 if len(t1) >= 11 else [0]
+
             exchange_times_ = []
             for res2 in transition_times:
                 # Ignoring all residues with less than 10 transitions
-                if len(transition_times[res2]) < 11:
-                    transition_times[res2] = [0]
+                t2 = transition_times[res2]
+                res2_used = t2 if len(t2) >= 11 else [0]
+                
                 sum_ = 0 # reset the sum
                 
                 # for loops to iterate arrays within dictionary
-                for i in range(1, len(transition_times[res1])):
+                for i in range(1, len(res2_used)):
                     # ensures we only get the first
-                    if (self.find_gt(transition_times[res2], transition_times[res1][i])) < transition_times[res1][i]:
+                    if (self.find_gt(res1_used, res2_used[i])) < res2_used[i]:
                         break 
                     else:
-                        sum_ += ((self.find_gt(transition_times[res2], transition_times[res1][i]) - transition_times[res1][i]) * (transition_times[res1][i] - transition_times[res1][i - 1]))
+                        sum_ += ((self.find_gt(res1_used, res2_used[i]) - res2_used[i]) * (res2_used[i] - res2_used[i - 1]))
                 exchange_times_.append(sum_ / observation_time)# get avg
+
+
             exchange_times.append(exchange_times_) # add to the array
         return exchange_times
 # ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -350,8 +355,8 @@ class CONDACT(AnalysisBase):
         np.save('Conditional_Activity_matrix.npy', conditional_activity_matrix)
         return conditional_activity, persistence_times, exchange_times
 
-# # ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-# # total time taken 
+# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    
+# total time taken 
 end = time.time()
 print(f"Total runtime of the program is {end - begin}") 
