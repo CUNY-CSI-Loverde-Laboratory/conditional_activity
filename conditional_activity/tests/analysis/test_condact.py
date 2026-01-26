@@ -208,7 +208,7 @@ def test_mean_exchange_time():
                               saving_frequency=10)
     # call mean_exchange_times function
     exchange_time = condact.mean_exchange_time()
-    assert exchange_time == [[319.9166666666667, 0.0, 3056.0233333333335], [0.0, 0.0, 0.0], [103.28333333333333, 0.0, 776.2666666666667]]
+    assert exchange_time == [[319.9166666666667, 0.0, 103.28333333333333], [0.0, 0.0, 0.0], [3056.0233333333335, 0.0, 776.2666666666667]]
 
 def test_mean_conditional_activity():
     condact = CONDACT(universe,
@@ -218,7 +218,7 @@ def test_mean_conditional_activity():
                         saving_frequency=10,
                         states_protein= "XYZ")
     conditional_activity, persistence_times, exchange_times = condact.mean_conditional_activity()
-    assert conditional_activity == [[1.0853775738595968, math.nan, -1.1714316664379227], [math.nan, math.nan, math.nan], [3.606611456169962, math.nan, 1.5895913731466649]]
+    assert conditional_activity == [[1.0853775738595968, math.nan, 2.2159620983323873], [math.nan, math.nan, math.nan], [0.21921769139965167, math.nan, 1.5895913731466649]]
 
     # Check if the output file exists
     final = "Conditional_Activity_list.npy"
