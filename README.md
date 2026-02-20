@@ -28,9 +28,9 @@ CONDACT focuses on **transition timing** of discrete geometric states
     FDR
 
 The method builds upon the concept of conditional activity and extends
-it to large, heterogeneous systems including protein--DNA complexes.
+it to large, heterogeneous systems including protein-DNA complexes.
 
-The module is built as an MDKit. All files accepted by MDAnanlysis to create Universe can be used in CONDACT.\ 
+The module is built as an MDKit. All files accepted by MDAnanlysis to create Universe can be used in CONDACT. 
 Atom selection for MDAnalysis is also valid.
 
 --------------------------------------------------------------------------------------------------
