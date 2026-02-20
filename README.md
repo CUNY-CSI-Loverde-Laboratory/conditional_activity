@@ -36,90 +36,20 @@ Atom selection for MDAnalysis is also valid.
 --------------------------------------------------------------------------------------------------
 
 ## 2. Core Concept: Conditional Activity
-
-## Mathematical Definitions
-
-### Waiting Time
-
-For residue **X**, the waiting time between transitions is:
-
-```
-W_X(i) = T_X(i+1) - T_X(i)
-```
-
-where `T_X(i)` is the ith transition time of residue X.
-
----
-
-### Mean Persistence Time
-
-The mean persistence time of residue X is proportional to the mean squared waiting time:
-
-```
-⟨τ_X⟩ = ⟨ W_X^2 ⟩ / ( 2 ⟨ W_X ⟩ )
-```
-
-This reflects the average time a degree of freedom remains in a given state when sampled at a random time.
-
----
-
-### Mean Exchange Time
-
-The mean exchange time of X following a transition in Y is:
-
-```
-⟨τ_X|Y⟩
-```
-
-This represents the average waiting time for X to transition after a transition occurs in Y.
-
----
-
-### Conditional Activity
-
-Conditional activity of X with respect to Y is defined as:
-
-```
-A[X][Y] = - log( ⟨τ_X|Y⟩ / ⟨τ_X⟩ )
-```
-
-Interpretation:
-
-- `A[X][Y] > 0` → Transition in Y promotes transition in X  
-- `A[X][Y] = 0` → Independent dynamics  
-- `A[X][Y] < 0` → Suppression  
-- `A[X][X]` → Dynamical memory  
-
-Note: Conditional activity is directional:
-
-```
-A[X][Y] ≠ A[Y][X]
-```
-
-
+#### Mathematical Definitions
 
 For two residues **X** and **Y**:
 
 - **Transition times:** `T(X,i)`, `T(Y,i)`
+- **Waiting times (W_X(i)):** `T_X(i+1)` - `T_X(i)`. where `T_X(i)` is the ith transition time of residue X.
 - **Persistence time (memory):** `<tau_X>`
 - **Exchange time:** `<tau_X|Y>`
 
 **Conditional Activity:**
 
 ```
-A[X][Y] = -log( <tau_X|Y> / <tau_X> )
-```
-
-
-For two residues X and Y:
-
--   Transition times: T(X,i), T(Y,i)\
--   Persistence time (memory): ⟨τ_X⟩\
--   Exchange time: ⟨τ_X\|Y⟩
-
-Conditional Activity:
-
 A\[X\]\[Y\] = -log( ⟨τ_X\|Y⟩ / ⟨τ_X⟩ )
+```
 
 Interpretation:
 
