@@ -37,6 +37,19 @@ Atom selection for MDAnalysis is also valid.
 
 ## 2. Core Concept: Conditional Activity
 
+For two residues **X** and **Y**:
+
+- **Transition times:** `T(X,i)`, `T(Y,i)`
+- **Persistence time (memory):** `<tau_X>`
+- **Exchange time:** `<tau_X|Y>`
+
+**Conditional Activity:**
+
+```
+A[X][Y] = -log( <tau_X|Y> / <tau_X> )
+```
+
+
 For two residues X and Y:
 
 -   Transition times: T(X,i), T(Y,i)\
@@ -62,12 +75,21 @@ Importantly: A\[X\]\[Y\] ≠ A\[Y\]\[X\] (directional)
 
 ## 3. Repository Structure
 
-conditional_activity/ │ ├── analysis/ │ ├── condact.py \# Core CONDACT
-implementation │ ├── fdr.py \# Permutation + BH-FDR correction │ ├──
-trace_route.py \# Communication pathway tracing │ ├── condact_tutorial/
-│ └── tutorial.ipynb \# End-to-end example workflow │ ├── tests/ \#
-Validation tests │ ├── pyproject.toml \# Build configuration ├──
-README.md \# This file └── LICENSE
+```
+conditional_activity/
+├── analysis/
+│   ├── condact.py        # Core CONDACT implementation
+│   ├── fdr.py            # Permutation + BH-FDR correction
+│   └── trace_route.py    # Communication pathway tracing
+│
+├── condact_tutorial/
+│   └── tutorial.ipynb    # End-to-end example workflow
+│
+├── tests/                # Validation tests
+├── pyproject.toml        # Build configuration
+├── README.md             # This file
+└── LICENSE
+```
 
 --------------------------------------------------------------------------------------------------
 
