@@ -53,12 +53,12 @@ A\[X\]\[Y\] = -log( ⟨τ_X\|Y⟩ / ⟨τ_X⟩ )
 
 Interpretation:
 
-  Value              Meaning
-  ------------------ ------------------------------------------
-  A\[X\]\[Y\] \> 0   Transition in Y promotes transition in X
-  A\[X\]\[Y\] = 0    Independent transitions
-  A\[X\]\[Y\] \< 0   Suppression
-  A\[X\]\[X\]        Dynamical memory of residue X
+| Value            | Meaning                                      |
+|------------------|----------------------------------------------|
+| `A[X][Y] > 0`    | Transition in Y promotes transition in X     |
+| `A[X][Y] = 0`    | Independent transitions                      |
+| `A[X][Y] < 0`    | Suppression                                  |
+| `A[X][X]`        | Dynamical memory of residue X                |
 
 Importantly: A\[X\]\[Y\] ≠ A\[Y\]\[X\] (directional)
 
