@@ -42,7 +42,7 @@ For two residues **X** and **Y**:
 
 - **Transition times:** `T(X,i)`, `T(Y,i)`
 - **Waiting times (W_X(i)):** `T_X(i+1)` - `T_X(i)`. where `T_X(i)` is the ith transition time of residue X.
-- **Persistence time (memory):** `⟨τ_X⟩`
+- **Persistence time:** `⟨τ_X⟩`
 - **Exchange time:** `⟨τ_X\|Y⟩`
 
 **Conditional Activity:**
