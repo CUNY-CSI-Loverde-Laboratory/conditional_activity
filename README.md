@@ -172,12 +172,28 @@ Predicts dynamically connected domains.
 
 --------------------------------------------------------------------------------------------------
 
-## 9. Citation
+## 9. Related Publications & Citation
 
 If you use CONDACT, please cite:
 
-Onyema et al., *Mapping Allosteric Communication in the Nucleosome with
-Conditional Activity*.
+Onyema et al., *Mapping Allosteric Communication in the Nucleosome with Conditional Activity*. *updated soon*
+
+
+### Preprint
+
+Onyema, A. C., Dikeocha, R., Moussa, J., & Loverde, S. M.  
+**Mapping Allosteric Communication in the Nucleosome with Conditional Activity**  
+*bioRxiv (Preprint)*  
+https://doi.org/10.1101/2025.09.14.676121
+
+---
+
+### Accepted / Published Work
+
+Onyema, A. C., Dikeocha, C., Patel, R., Moussa, J., & Loverde, S. M.  
+**Mapping Allosteric Communication in the Nucleosome with Conditional Activity**  
+*J. Chem. Inf. Model, 2026  
+https://doi.org/XXXX
 
 ------------------------------------------------------------------------
 
