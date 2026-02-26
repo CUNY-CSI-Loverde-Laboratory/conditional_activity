@@ -5,7 +5,7 @@
 
 **Author:** Augustine C. Onyema\
 **Assisted by:** Chukwuebuka Dikeocha\
-**Lab:** Loverde Laboratory, CUNY\
+**Lab:** Loverde Laboratory, CUNY
 
 --------------------------------------------------------------------------------------------------
 
