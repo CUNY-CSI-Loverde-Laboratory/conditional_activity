@@ -175,7 +175,7 @@ Predicts dynamically connected domains.
 
 If you use CONDACT, please cite:
 
-Onyema et al., *Mapping Allosteric Communication in the Nucleosome with Conditional Activity.  J. Chem. Inf. Model. (2026).*. https://pubs.acs.org/doi/10.1021/acs.jcim.6c00317
+Onyema et al., *Mapping Allosteric Communication in the Nucleosome with Conditional Activity.  J. Chem. Inf. Model. (2026).* https://pubs.acs.org/doi/10.1021/acs.jcim.6c00317
 
 ### *bioRxiv (Preprint)* 
 Onyema, A. C., Dikeocha, R., Moussa, J., & Loverde, S. M.  
