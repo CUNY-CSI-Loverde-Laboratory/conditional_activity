@@ -176,8 +176,7 @@ Predicts dynamically connected domains.
 
 If you use CONDACT, please cite:
 
-Onyema et al., *Mapping Allosteric Communication in the Nucleosome with Conditional Activity*. *updated soon*
-
+Onyema et al., *Mapping Allosteric Communication in the Nucleosome with Conditional Activity.  J. Chem. Inf. Model. (2026).*. https://pubs.acs.org/doi/10.1021/acs.jcim.6c00317
 
 ### *bioRxiv (Preprint)* 
 Onyema, A. C., Dikeocha, R., Moussa, J., & Loverde, S. M.  
@@ -187,7 +186,12 @@ https://doi.org/10.1101/2025.09.14.676121
 ### *Accepted for Publication*
 Onyema, A. C., Dikeocha, C., Patel, R., Moussa, J., & Loverde, S. M.  
 **Mapping Allosteric Communication in the Nucleosome with Conditional Activity**  
-*J. Chem. Inf. Model*, 2026. https://doi.org/XXXX
+*J. Chem. Inf. Model*, 2026. https://pubs.acs.org/doi/10.1021/acs.jcim.6c00317
+
+### *Conditional Activity Concept*
+Lin, M. M. 
+**Timing correlations in proteins predict functional modules and dynamic allostery.** 
+*J. Am. Chem. Soc.* 2016, 138 (15), 5036–5043. https://pubs.acs.org/doi/10.1021/jacs.5b08814
 
 ------------------------------------------------------------------------
 
