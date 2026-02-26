@@ -6,7 +6,6 @@
 **Author:** Augustine C. Onyema\
 **Assisted by:** Chukwuebuka Dikeocha\
 **Lab:** Loverde Laboratory, CUNY\
-**Status:** Validated & Accepted for Published 
 
 --------------------------------------------------------------------------------------------------
 
